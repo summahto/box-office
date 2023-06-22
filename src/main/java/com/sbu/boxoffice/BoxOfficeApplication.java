@@ -26,7 +26,6 @@ public class BoxOfficeApplication {
 		DataLoader dataLoader = applicationConfig.getDataLoader();
 
 		Properties properties = new Properties();
-		// Map<String, String> propertyMap = new LinkedHashMap<>();
 
 		try (InputStream inputStream = new FileInputStream(
 				"src/main/resources/application.properties")) {
@@ -65,13 +64,14 @@ public class BoxOfficeApplication {
 	}
 
 	private static void displayChoices() {
-		System.out.println("Please enter your choice" +
+		System.out.println("Please enter your choice [and press enter]" +
 				"\n1. Display Movies" +
 				"\n2. Display Movie Shows" +
 				"\n3. Book Tickets" +
 				"\n4. Swap Movies" +
 				"\n5. Generate Report" +
-				"\n6. ShutDown Box-Office\n");
+				"\n6. ShutDown Box-Office " +
+				"\n7. Exit\n");
 	}
 
 	private static void checkChoice(String choice, CommandInvoker commandInvoker, Scanner scanner) {
@@ -134,7 +134,9 @@ public class BoxOfficeApplication {
 
 				case "4": {
 
-					// System.out.println("Following are the shows whc");
+					System.out.println("Following are the shows which are currently scrrening : \n");
+					commandInvoker.executeCommand("DISPLAY-SHOWS", tokens);
+
 					System.out.println("Enter the showIds of the two shows whose movies you would like to swap");
 					System.out.println("Enter the first show Id");
 					String show1Id = scanner.nextLine();
@@ -160,14 +162,20 @@ public class BoxOfficeApplication {
 
 				case "6": {
 
-					commandInvoker.executeCommand("SHUTDOWN-BOX-OFFICE", null);
-				}
 					break;
+				}
+
+				case "7": {
+					break;
+				}
+
+				default:
+					System.out.println("Please enter a choice within the given options and try again\n");
 
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 	}

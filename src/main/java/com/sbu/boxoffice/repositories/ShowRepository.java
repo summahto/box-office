@@ -35,4 +35,9 @@ public class ShowRepository implements IShowRepository {
     public void saveShow(Show show) {
         showMap.put(show.getId(), show);
     }
+
+    @Override
+    public List<Show> getAllShows() {
+        return showMap.values().stream().toList();
+    }
 }

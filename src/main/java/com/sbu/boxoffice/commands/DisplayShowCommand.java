@@ -16,8 +16,19 @@ public class DisplayShowCommand implements ICommand {
 
     @Override
     public void execute(List<String> tokens) {
-        String movieTitle = tokens.get(0);
-        List<ShowResponse> showResponseList = iShowService.getAllShowsByMovieTitle(movieTitle);
+
+        List<ShowResponse> showResponseList;
+
+        if (!tokens.isEmpty()) {
+
+            String movieTitle = tokens.get(0);
+            showResponseList = iShowService.getAllShowsByMovieTitle(movieTitle);
+
+        } else {
+            showResponseList = iShowService.getAllShows();
+
+        }
+
         showResponseList.stream()
                 .forEach(showResponse -> {
                     System.out.println("Show ID - " + showResponse.getShowId());
@@ -25,7 +36,8 @@ public class DisplayShowCommand implements ICommand {
                     System.out.println(
                             "Start - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(showResponse.getStart()));
                     System.out
-                            .println("End - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(showResponse.getEnd()));
+                            .println("End - "
+                                    + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(showResponse.getEnd()));
                     System.out.println("Cinema - " + showResponse.getCinemaName());
                     System.out.println("Screen - " + showResponse.getScreenName());
                     System.out.println();

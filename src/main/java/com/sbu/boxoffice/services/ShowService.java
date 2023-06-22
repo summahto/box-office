@@ -1,5 +1,6 @@
 package com.sbu.boxoffice.services;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class ShowService implements IShowService {
                     show.getEnd()));
         }
         return getShowResponseList;
+
     }
 
     @Override
@@ -46,17 +48,58 @@ public class ShowService implements IShowService {
         Show show1 = iShowRepository.getShowById(show1Id);
         Show show2 = iShowRepository.getShowById(show2Id);
 
-        System.out.println("Swpping Movie1 and movie2");
-        System.out.println("Movie being run in Show1 before swapping : " + show1.getMovieTitle().toString());
-        System.out.println("Movie being run in Show2 before swapping : " + show2.getMovieTitle().toString());
+        System.out.println("Before Swapping :");
+        System.out.println("Show ID - " + show1Id +
+                "\nTitle - " + show1.getMovieTitle() +
+                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getStart()) +
+                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getEnd()) +
+                "\nScreen - " + show1.getScreenName());
+        System.out.println();
+
+        System.out.println("Show ID - " + show2Id +
+                "\nTitle - " + show2.getMovieTitle() +
+                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getStart()) +
+                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getEnd()) +
+                "\nScreen - " + show2.getScreenName());
+        System.out.println();
 
         Movie movie1 = show1.getMovie();
         show1.setMovie(show2.getMovie());
         show2.setMovie(movie1);
 
-        System.out.println("Movie being run in Show1 after swapping : " + show1.getMovieTitle().toString());
-        System.out.println("Movie being run in Show2 after swapping : " + show2.getMovieTitle().toString());
+        System.out.println("After Swapping :");
+        System.out.println("Show ID - " + show1Id +
+                "\nTitle - " + show1.getMovieTitle() +
+                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getStart()) +
+                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getEnd()) +
+                "\nScreen - " + show1.getScreenName());
+        System.out.println();
 
+        System.out.println("Show ID - " + show2Id +
+                "\nTitle - " + show2.getMovieTitle() +
+                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getStart()) +
+                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getEnd()) +
+                "\nScreen - " + show2.getScreenName());
+        System.out.println();
+
+    }
+
+    @Override
+    public List<ShowResponse> getAllShows() {
+
+        List<ShowResponse> getShowResponseList = new ArrayList<>();
+        List<Show> showList = iShowRepository.getAllShows();
+        for (Show show : showList) {
+
+            getShowResponseList.add(new ShowResponse(
+                    show.getId(),
+                    show.getMovieTitle(),
+                    show.getCinemaName(),
+                    show.getScreenName(),
+                    show.getStart(),
+                    show.getEnd()));
+        }
+        return getShowResponseList;
     }
 
 }
