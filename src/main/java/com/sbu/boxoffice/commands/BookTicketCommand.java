@@ -36,8 +36,10 @@ public class BookTicketCommand implements ICommand {
             System.out.println("Successfully booked your seats.");
             System.out.println("Ticket ID - " + ticket.getId());
             System.out.println();
-        } catch (SeatNotAvailableException e) {
-            System.out.println(e);
+        } catch (SeatNotAvailableException sne) {
+            sne.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

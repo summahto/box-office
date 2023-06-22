@@ -110,9 +110,7 @@ public class TicketService implements ITicketService {
 
         if (ticket != null) {
             totalTicketsSold += seatList.size();
-            updateScreenSeatsSoldMap(ticket, seatList.size());
             updateShowSeatsSoldMap(ticket, seatList.size());
-            updateMovieSeatsSoldMap(ticket, seatList.size());
         }
 
         return ticket;
