@@ -1,23 +1,15 @@
 package com.sbu.boxoffice;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
 
 import com.sbu.boxoffice.commands.CommandInvoker;
-import com.sbu.boxoffice.commands.ICommand;
 import com.sbu.boxoffice.exceptions.NoSuchDataException;
-import com.sbu.boxoffice.repositories.data.CinemaData;
 import com.sbu.boxoffice.repositories.data.DataLoader;
 import com.sbu.boxoffice.utils.ApplicationConfig;
 
