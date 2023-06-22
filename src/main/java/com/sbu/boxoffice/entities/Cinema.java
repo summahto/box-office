@@ -1,8 +1,8 @@
 package com.sbu.boxoffice.entities;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.TreeMap;
 
 public class Cinema extends BaseEntity {
 
@@ -12,7 +12,7 @@ public class Cinema extends BaseEntity {
     public Cinema(String id, String name) {
         this.id = id;
         this.name = name;
-        this.screenMap = new HashMap<>();
+        this.screenMap = new TreeMap<>();
     }
 
     public void addScreen(Screen screen) {
@@ -38,6 +38,10 @@ public class Cinema extends BaseEntity {
         return screenMap.get(screenId);
     }
 
+    public Map<String, Screen> getScreenMap() {
+        return screenMap;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -57,4 +61,5 @@ public class Cinema extends BaseEntity {
     public String toString() {
         return "Cinema [name=" + name + ", screenMap=" + screenMap + "]";
     }
+
 }

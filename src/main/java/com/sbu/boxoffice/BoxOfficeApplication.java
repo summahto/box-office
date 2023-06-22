@@ -109,7 +109,7 @@ public class BoxOfficeApplication {
 					System.out.println("Following are the movies currently screening: ");
 					commandInvoker.executeCommand("DISPLAY-MOVIES", null);
 
-					System.out.println("Enter the movie you want to watch\n");
+					System.out.println("Enter the movie name you want to watch\n");
 					String inputMovie = scanner.nextLine();
 					tokens.add(inputMovie); // 0
 
@@ -159,7 +159,10 @@ public class BoxOfficeApplication {
 
 				case "5": {
 
-					commandInvoker.executeCommand("GENERATE-REPORT", null);
+					System.out.println("Enter the Movie Theatre Id");
+					String id = scanner.nextLine();
+					tokens.add(id);
+					commandInvoker.executeCommand("GENERATE-REPORT", tokens);
 				}
 					break;
 

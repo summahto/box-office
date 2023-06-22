@@ -33,10 +33,14 @@ public class TicketRepository implements ITicketRepository {
         ticketMap.remove(id);
     }
 
+    public static Integer getCounter() {
+        return counter;
+    }
+
     @Override
     public Ticket saveTicket(Customer customer, Show show, List<Seat> seatList) {
         counter++;
-        Ticket ticket = new Ticket(customer, seatList);
+        Ticket ticket = new Ticket(counter, customer, show, seatList);
         ticketMap.put(counter, ticket);
         return ticket;
     }

@@ -47,6 +47,14 @@ public class Show extends BaseEntity {
         this.movie = input;
     }
 
+    public Screen getScreen() {
+        return screen;
+    }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)

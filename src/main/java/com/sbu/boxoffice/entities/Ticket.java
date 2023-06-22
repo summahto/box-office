@@ -3,19 +3,18 @@ package com.sbu.boxoffice.entities;
 import java.util.List;
 import java.util.Objects;
 
-import com.sbu.boxoffice.utils.IdGenerator;
+public class Ticket {
 
-public class Ticket extends BaseEntity {
-
+    private final Integer id;
     private final Customer customer;
-    // Not required as of now
-    // private final Show show;
+    private final Show show;
     private final List<Seat> seats;
 
-    public Ticket(Customer customer, List<Seat> seats) {
+    public Ticket(Integer id, Customer customer, Show show, List<Seat> seats) {
         this.customer = customer;
+        this.show = show;
         this.seats = seats;
-        this.id = IdGenerator.generateId(Ticket.class);
+        this.id = id;
     }
 
     public Customer getCustomer() {
@@ -24,6 +23,14 @@ public class Ticket extends BaseEntity {
 
     public List<Seat> getSeats() {
         return seats;
+    }
+
+    public String getShowId() {
+        return show.getId();
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     @Override
@@ -42,7 +49,9 @@ public class Ticket extends BaseEntity {
         return Objects.hash(getId());
     }
 
+    @Override
     public String toString() {
-        return "Ticket [customer=" + customer + ", seats=" + seats + "]";
+        return "Ticket [customer=" + customer + ", show=" + show + ", seats=" + seats + "]";
     }
+
 }

@@ -17,12 +17,13 @@ public class ApplicationConfig {
     private final IMovieService iMovieService = new MovieService(iMovieRepository);
     private final ITicketService iTicketService = new TicketService(iCustomerRepository, iShowSeatRepository,
             iShowRepository, iTicketRepository);
+    private final ICinemaService iCinemaService = new CinemaService(iCinemaRepository);
 
     private final ICommand bookTicketCommand = new BookTicketCommand(iTicketService);
     private final ICommand displayMovieCommand = new DisplayMovieCommand(iMovieService);
     private final ICommand displayShowCommand = new DisplayShowCommand(iShowService);
     private final ICommand displayShowSeatCommand = new DisplayShowSeatCommand(iShowService);
-    private final ICommand generateReportCommand = new GenerateReportCommand();
+    private final ICommand generateReportCommand = new GenerateReportCommand(iTicketService, iCinemaService);
     private final ICommand swapMovieCommand = new SwapMovieCommand(iShowService);
     // private final ICommand cancelTicketCommand = new
     // CancelTicketCommand(iTicketService);
