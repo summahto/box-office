@@ -58,15 +58,4 @@ public class GenerateReportCommand implements ICommand {
         System.out.println("\n");
     }
 
-    public static void main(String[] args) {
-        System.out.println("Ticket Sales Report");
-        System.out.println(
-                "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%-15s %-30s %-25s %-15s %-30s %-25s\n",
-                "Screen ", "Movie", "Total Tickets Available", "Tickets Sold",
-                "Total Tickets Sold for Screen", "Percentage Share of Tickets Sold for Screen");
-        System.out.println(
-                "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-    }
-
 }
