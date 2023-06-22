@@ -130,13 +130,6 @@ public class TicketService implements ITicketService {
         iTicketRepository.removeTicket(ticketId);
     }
 
-    private void updateMovieSeatsSoldMap(Ticket ticket, int numOfSeats) {
-
-        Show show = iShowRepository.getShowById(ticket.getShowId());
-        movieSeatsSoldMap.put(show.getMovie(), movieSeatsSoldMap.getOrDefault(show.getMovie(), 0) + numOfSeats);
-
-    }
-
     private void updateShowSeatsSoldMap(Ticket ticket, int numOfSeats) {
 
         Show show = iShowRepository.getShowById(ticket.getShowId());
@@ -144,10 +137,22 @@ public class TicketService implements ITicketService {
 
     }
 
-    private void updateScreenSeatsSoldMap(Ticket ticket, int numOfSeats) {
-
-        Show show = iShowRepository.getShowById(ticket.getShowId());
-        screenSeatsSoldMap.put(show.getScreen(), screenSeatsSoldMap.getOrDefault(show.getScreenName(), 0) + numOfSeats);
-
-    }
+    /*
+     * 
+     * private void updateMovieSeatsSoldMap(Ticket ticket, int numOfSeats) {
+     * 
+     * Show show = iShowRepository.getShowById(ticket.getShowId());
+     * movieSeatsSoldMap.put(show.getMovie(),
+     * movieSeatsSoldMap.getOrDefault(show.getMovie(), 0) + numOfSeats);
+     * 
+     * }
+     * 
+     * private void updateScreenSeatsSoldMap(Ticket ticket, int numOfSeats) {
+     * 
+     * Show show = iShowRepository.getShowById(ticket.getShowId());
+     * screenSeatsSoldMap.put(show.getScreen(),
+     * screenSeatsSoldMap.getOrDefault(show.getScreenName(), 0) + numOfSeats);
+     * 
+     * }
+     */
 }

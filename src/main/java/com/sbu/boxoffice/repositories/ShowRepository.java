@@ -22,7 +22,7 @@ public class ShowRepository implements IShowRepository {
     public List<Show> getAllShowsForMovieName(String title) {
         return showMap.values()
                 .stream()
-                .filter(show -> title.equals(show.getMovieTitle()))
+                .filter(show -> title.equalsIgnoreCase(show.getMovieTitle()))
                 .collect(Collectors.toList());
     }
 

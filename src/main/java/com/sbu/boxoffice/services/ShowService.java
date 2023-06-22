@@ -49,39 +49,28 @@ public class ShowService implements IShowService {
         Show show2 = iShowRepository.getShowById(show2Id);
 
         System.out.println("Before Swapping :");
-        System.out.println("Show ID - " + show1Id +
-                "\nTitle - " + show1.getMovieTitle() +
-                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getStart()) +
-                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getEnd()) +
-                "\nScreen - " + show1.getScreenName());
-        System.out.println();
+        displayShowDetail(show1Id, show1);
 
-        System.out.println("Show ID - " + show2Id +
-                "\nTitle - " + show2.getMovieTitle() +
-                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getStart()) +
-                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getEnd()) +
-                "\nScreen - " + show2.getScreenName());
-        System.out.println();
+        displayShowDetail(show2Id, show2);
 
         Movie movie1 = show1.getMovie();
         show1.setMovie(show2.getMovie());
         show2.setMovie(movie1);
 
         System.out.println("After Swapping :");
+        displayShowDetail(show1Id, show1);
+
+        displayShowDetail(show2Id, show2);
+
+    }
+
+    private void displayShowDetail(String show1Id, Show show1) {
         System.out.println("Show ID - " + show1Id +
                 "\nTitle - " + show1.getMovieTitle() +
                 "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getStart()) +
                 "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show1.getEnd()) +
                 "\nScreen - " + show1.getScreenName());
         System.out.println();
-
-        System.out.println("Show ID - " + show2Id +
-                "\nTitle - " + show2.getMovieTitle() +
-                "\nStart - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getStart()) +
-                "\nEnd - " + new SimpleDateFormat("dd/MM/yyyy HH:mm").format(show2.getEnd()) +
-                "\nScreen - " + show2.getScreenName());
-        System.out.println();
-
     }
 
     @Override

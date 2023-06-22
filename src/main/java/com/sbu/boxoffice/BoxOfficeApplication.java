@@ -17,8 +17,8 @@ public class BoxOfficeApplication {
 
 	public static void main(String[] args) {
 
-		System.out.println("Welcome to Regal Cinema Theatre" +
-				"\nPlease wait while we startup the Box-Office application");
+		System.out.println("\n !!!!!--- Welcome to Regal Cinema Theatre ---!!!!!" +
+				"\nPlease wait while we startup the Box-Office application\n");
 
 		// Add and load Data
 		ApplicationConfig applicationConfig = new ApplicationConfig();
@@ -64,7 +64,7 @@ public class BoxOfficeApplication {
 	}
 
 	private static void displayChoices() {
-		System.out.println("Please enter your choice [and press enter]" +
+		System.out.println("Please enter your choice [and press enter] : \n" +
 				"\n1. Display Movies" +
 				"\n2. Display Movie Shows" +
 				"\n3. Book Tickets" +
@@ -101,7 +101,7 @@ public class BoxOfficeApplication {
 					System.out.println("Following are the movies currently screening: ");
 					commandInvoker.executeCommand("DISPLAY-MOVIES", null);
 
-					System.out.println("Enter the movie name you want to watch\n");
+					System.out.println("Enter the name of the movie you want to watch : \n");
 					String inputMovie = scanner.nextLine();
 					tokens.add(inputMovie); // 0
 
@@ -112,7 +112,7 @@ public class BoxOfficeApplication {
 					String inputShowId = scanner.nextLine();
 					tokens.add(inputShowId); // 1
 
-					System.out.println("enter your name : ");
+					System.out.println("enter your name :");
 					String inputName = scanner.nextLine();
 					System.out.println("Enter your email :");
 					String inputEmail = scanner.nextLine();
@@ -123,8 +123,7 @@ public class BoxOfficeApplication {
 					commandInvoker.executeCommand("DISPLAY-SEATS", tokens);
 
 					System.out.println(
-							"Enter the seats/tickets do you want to book (format : rowNum1#colNum1 rowNum2#colNum2)\t"
-									+ "example(to book 3 tickets in 4th row) : 4#2 4#3 4#4");
+							"Enter the seats/tickets do you want to book (format : rowNum1#colNum1 rowNum2#colNum2), example to book first 3 tickets in 4th row : 4#1 4#2 4#3");
 					String selectedSeats = scanner.nextLine();
 					tokens.add(selectedSeats);// 4
 
@@ -137,12 +136,12 @@ public class BoxOfficeApplication {
 					System.out.println("Following are the shows which are currently scrrening : \n");
 					commandInvoker.executeCommand("DISPLAY-SHOWS", tokens);
 
-					System.out.println("Enter the showIds of the two shows whose movies you would like to swap");
-					System.out.println("Enter the first show Id");
+					System.out.println("Enter the showIds of the two shows whose movies you would like to swap: ");
+					System.out.println("Enter the first show Id : ");
 					String show1Id = scanner.nextLine();
 					tokens.add(show1Id);
 
-					System.out.println("Enter the second show Id");
+					System.out.println("Enter the second show Id :");
 					String show2Id = scanner.nextLine();
 					tokens.add(show2Id);
 
@@ -153,7 +152,7 @@ public class BoxOfficeApplication {
 
 				case "5": {
 
-					System.out.println("Enter the Movie Theatre Id");
+					System.out.println("Enter the Movie Theatre Id : ");
 					String id = scanner.nextLine();
 					tokens.add(id);
 					commandInvoker.executeCommand("GENERATE-REPORT", tokens);
@@ -162,15 +161,15 @@ public class BoxOfficeApplication {
 
 				case "6": {
 
-					break;
+					System.exit(1);
 				}
 
 				case "7": {
-					break;
+					System.exit(1);
 				}
 
 				default:
-					System.out.println("Please enter a choice within the given options and try again\n");
+					System.out.println("Please enter a choice within the given options and try again \n");
 
 			}
 
