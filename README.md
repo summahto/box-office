@@ -1,2 +1,2 @@
-# box-office
-This is an application for movie theatres.
+# Box-office
+This is an application which allows Movie Theatres to manage the movies, their shows, screens and book tickets for customers.
