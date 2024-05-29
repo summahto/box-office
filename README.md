@@ -1,6 +1,6 @@
 # Movie Theatre Application
 
-![Logo](path_to_logo_image)
+![Logo](![image](https://github.com/summahto/box-office/assets/20516618/592c2cde-8aa3-4cd5-a53d-20c009b690f2))
 
 ## Table of Contents
 
